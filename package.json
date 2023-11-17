@@ -1,0 +1,23 @@
+{
+  "name": "furry_friend_favourable_mention_system",
+  "version": "1.0.0",
+  "description": "A pet recommendation quiz, made with Electron.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SE-3351/group-assignment-teamfiddlesticks.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SE-3351/group-assignment-teamfiddlesticks/issues"
+  },
+  "homepage": "https://github.com/SE-3351/group-assignment-teamfiddlesticks#readme",
+  "devDependencies": {
+    "electron": "^27.1.0"
+  }
+}
