@@ -56,7 +56,28 @@ export default function HomePage() {
 							<LandingPagePet imageUrl='https://i1.sndcdn.com/artworks-FZYtcnfgLHJp52Q2-lEfruQ-t500x500.jpg' name='Dog'/>
 						</div>
 					</div>
-					<button className='mt-8 bg-blue-500 p-4 text-xl px-10 rounded-full' >Take the quiz!</button>
+					<button className='mt-8
+						bg-gradient-to-r
+						from-cyan-500
+						via-blue-700
+						to-purple-500
+						p-4
+						text-xl
+						px-10
+						rounded-full
+						transition
+						duration-100 
+						ease-in-out
+						hover:from-cyan-300
+						hover:to-purple-300
+						hover:scale-110
+						hover:text-black
+						hover:font-extrabold
+						active:scale-95
+						active:from-cyan-700
+						active:to-purple-700
+						active:text-white'
+					>Take the quiz!</button>
 			</div>
 		</React.Fragment>
 	)
