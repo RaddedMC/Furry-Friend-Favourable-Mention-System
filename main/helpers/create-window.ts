@@ -80,6 +80,7 @@ export const createWindow = (
     },
   })
 
+  win.removeMenu()
   win.on('close', saveState)
 
   return win
