@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import Head from 'next/head'
 import LandingPagePet from '../components/LandingPagePet'
-
+import Link from 'next/link'
 
 export default function HomePage() {
 
@@ -56,6 +56,7 @@ export default function HomePage() {
 							<LandingPagePet imageUrl='https://i1.sndcdn.com/artworks-FZYtcnfgLHJp52Q2-lEfruQ-t500x500.jpg' name='Dog'/>
 						</div>
 					</div>
+					<Link href="/surveypage">
 					<button className='mt-8
 						bg-gradient-to-r
 						from-cyan-500
@@ -78,6 +79,7 @@ export default function HomePage() {
 						active:to-purple-700
 						active:text-white'
 					>Take the quiz!</button>
+					</Link>
 			</div>
 		</React.Fragment>
 	)
