@@ -13,8 +13,17 @@ const handler = {
       ipcRenderer.removeListener(channel, subscription)
     }
   },
+  
 }
-
 contextBridge.exposeInMainWorld('ipc', handler)
 
+contextBridge.exposeInMainWorld('electronAPI', {
+  setQuestion: (question, val) => {
+    ipcRenderer.send('setquestion', question, val)
+    console.log("dsada");
+  }
+})
+
+
 export type IpcHandler = typeof handler
+

@@ -5,6 +5,21 @@ import { createWindow } from './helpers'
 
 const isProd = process.env.NODE_ENV === 'production'
 
+let selectedState = {
+  money: 50,
+  space: 50,
+  time: 50,
+  experience: 50,
+}
+let questions = {}
+
+function setquestion(event, questionID, val) {
+  questions[questionID] = val;
+  console.log(questions);
+  
+}
+
+
 if (isProd) {
   serve({ directory: 'app' })
 } else {
@@ -13,6 +28,8 @@ if (isProd) {
 
 ;(async () => {
   await app.whenReady()
+
+  ipcMain.on('setquestion', setquestion);
 
   const mainWindow = createWindow('main', {
     width: 1000,
@@ -29,6 +46,8 @@ if (isProd) {
     await mainWindow.loadURL(`http://localhost:${port}/home`)
     mainWindow.webContents.openDevTools()
   }
+
+
 })()
 
 app.on('window-all-closed', () => {
