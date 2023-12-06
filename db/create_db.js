@@ -31,9 +31,19 @@ function create_database(){
 */
 function create_tables(db){
     db.exec(`
-        create table pets(
+        CREATE TABLE pets(
             id INTEGER PRIMARY KEY NOT NULL,
-            name text not null
+            species TEXT NOT NULL,
+            common_name TEXT NOT NULL,
+            group_behaviour TEXT DEFAULT "" NOT NULL,
+            diet TEXT DEFAULT "" NOT NULL,
+            lifestyle TEXT DEFAULT "" NOT NULL,
+            skin_type TEXT NOT NULL,
+            lifespan TEXT NOT NULL,
+            weight TEXT NOT NULL,
+            height TEXT NOT NULL,
+            len TEXT DEFAULT "" NOT NULL,
+            habitat TEXT NOT NULL
         )
     `,(err)=>{
         if(err) console.log(err)
