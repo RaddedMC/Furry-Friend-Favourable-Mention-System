@@ -24,17 +24,20 @@ export default function QuizQuestion(props: questionprops) {
 	}
 
 	useEffect(() => {
-		if(!initialized) {
+	const handleScroll = () => false;
+    window.addEventListener("scroll", handleScroll);
+    
+    return () => {
+        window.removeEventListener("scroll", handleScroll);
+    };
+	}, []);
+
+	useEffect(() => {
+		if (!initialized) {
 			initialized = true
-			window.questionsAPI.getqs().then(vals => {
-				let qvals = JSON.parse(vals)
-				if (qvals[props.qnum]) {
-					console.log(qvals[props.qnum])
-					setsliderval(qvals[props.qnum])
-				}
-			})
+			window.questionsAPI.setqresponse({ q: props.qnum, val: sliderval })
 		}
-	})
+	}, []) // only run once	
 
 	const handleSlider = (e: { preventDefault: () => void; target: { value: SetStateAction<string>; }; }) => {
 		e.preventDefault();
