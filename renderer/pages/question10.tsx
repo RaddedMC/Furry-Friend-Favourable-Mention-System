@@ -9,7 +9,7 @@ export default function SurveyPage() {
 			<Head>
 				<title>Survey</title>
 			</Head>
-            <QuizQuestion title="What size of animals do you prefer?"leftlabel="Tiny"rightlabel="The Most Massive"type="space"qnum="5"></QuizQuestion>
+            <QuizQuestion title="How familar are you with pet health needs"leftlabel="peeing blood is normal right?"rightlabel="I'm a vet"type="experience"qnum="10"></QuizQuestion>
 		</React.Fragment>
 	)
 }
