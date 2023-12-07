@@ -1,5 +1,7 @@
 import Link from 'next/link'
-import { ChangeEventHandler, SetStateAction, useEffect, useState } from 'react';
+import { ChangeEventHandler, MouseEventHandler, SetStateAction, useEffect, useState } from 'react';
+
+const tempwindow: any = window;
 
 type questionprops = {
 	title: string,
@@ -32,7 +34,7 @@ export default function QuizQuestion(props: questionprops) {
 	useEffect(() => {
 		if (!initialized) {
 			initialized = true
-			window.questionsAPI.getqs().then(vals => {
+			tempwindow.questionsAPI.getqs().then(vals => {
 				let qvals = JSON.parse(vals)
 				if (qvals[props.qnum]) {
 					console.log(qvals[props.qnum])
@@ -44,21 +46,15 @@ export default function QuizQuestion(props: questionprops) {
 
 	const handleSlider = (e: { preventDefault: () => void; target: { value: SetStateAction<string>; }; }) => {
 		e.preventDefault();
-		setsliderval(e.target.value);
+		setsliderval(Number(e.target.value));
 	}
 
-	const handleBack = (e: { preventDefault: () => void; target: { value: SetStateAction<string>; }; }) => {
-		e.preventDefault();
-		window.questionsAPI.setqresponse({ q: props.qnum, val: sliderval });
+	const handleBack: MouseEventHandler = (e) => {
+		tempwindow.questionsAPI.setqresponse({ q: props.qnum, val: sliderval });
 		window.location.href = "/question" + String(Number(props.qnum) - 1)
 	}
-
-	const handleNext = (e: {
-		preventDefault: () => void;
-		target: { value: SetStateAction<string> };
-	  }) => {
-		e.preventDefault();
-		window.questionsAPI.setqresponse({ q: props.qnum, val: [props.type, sliderval] })
+	const handleNext: MouseEventHandler = (e) => {
+		tempwindow.questionsAPI.setqresponse({ q: props.qnum, val: [props.type, sliderval] })
 		if(Number(props.qnum) >= finalQ) {
 			window.location.href = "/result"
 			return;
@@ -111,7 +107,7 @@ export default function QuizQuestion(props: questionprops) {
 						active:to-purple-700
 						active:text-white'
 						id="back"
-						onClick={handleBack}>back</button>
+						onClick={(e) => handleBack(e)}>back</button>
 				</div>
 				<div className="flex-grow flex flex-row w-quarter" />
 				<div className=" rounded flex flex-row w-quarter" >

@@ -4,3 +4,7 @@ node_modules
 app
 dist
 test*
+out/
+forge.config*
+*ignore
+tsconfig.tsbuildinfo

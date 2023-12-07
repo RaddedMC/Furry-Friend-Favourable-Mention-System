@@ -1,16 +1,20 @@
-import React, { Component, useState, useEffect } from 'react'
+'use client';
+import React, {useState, useEffect} from 'react'
 import Head from 'next/head'
 import Link from 'next/link';
 import LandingPagePet from '../components/LandingPagePet';
+import ReviewDialog from '../components/ReviewDialog';
 
 
 export default function SurveyPage() {
     const [pet, setpet] = useState("")
     const [description, setdesc] = useState("")
     const [image, setimg] = useState("")
+    const [openState, setOpenState] = useState(false);
 
     useEffect(() => {
-        window.questionsAPI.getresult().then(res => {
+        const tempwindow: any = window;
+        tempwindow.questionsAPI.getresult().then(res => {
             const petobj = JSON.parse(res) 
             setpet(petobj["name"]);
             setdesc(petobj["desc"]);
@@ -59,6 +63,32 @@ export default function SurveyPage() {
 						active:text-white'
                     >Try Again</button>
                 </Link>
+
+                <button
+				onClick={() => setOpenState(true)}
+				className='mt-8
+						bg-gradient-to-r
+						from-cyan-800
+						to-cyan-600
+						p-4
+						text-xl
+						px-10
+						rounded-full
+						transition
+						duration-100 
+						ease-in-out
+						hover:from-cyan-700
+						hover:to-cyan-500
+						hover:scale-110
+						hover:text-black
+						hover:font-extrabold
+						active:scale-95
+						active:from-cyan-900
+						active:to-cyan-800
+						active:text-white'
+                    >Write a review?</button>
+
+                <ReviewDialog openState={openState} onClose={() => {setOpenState(false)}}/>
             </div>
         </React.Fragment>
     )
