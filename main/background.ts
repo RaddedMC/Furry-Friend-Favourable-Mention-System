@@ -9,12 +9,16 @@ const fs = require('fs');
  */
 let axis = ["money", "space", "time", "experience"]
 const isProd = process.env.NODE_ENV === 'production'
+const dirpath = () => {
+  return path.join(__dirname, isProd ? "../" : "" );
+};
 
 /**
  * fetch the pets 
  * convert them to their vector form
  */
-let pets = JSON.parse(fs.readFileSync("main/resources/pets.json"))
+
+let pets = JSON.parse(fs.readFileSync(path.join(dirpath(),'../extraresources',"pets.json")))
 for (let petkey in pets) {
   let pet = pets[petkey]
   pet["vector"] = [pet[axis[0]], pet[axis[1]], pet[axis[2]], pet[axis[3]]]

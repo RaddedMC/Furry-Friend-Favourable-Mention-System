@@ -1,6 +1,5 @@
-appId: com.uwo.se3351.furryfriends
-productName: Furry Friend Favourable Mention System
-copyright: Copyright © 2023 
+appId: com.se3351.fffms
+productName: furry-friend-favourable-mention-system
 directories:
   output: dist
   buildResources: resources

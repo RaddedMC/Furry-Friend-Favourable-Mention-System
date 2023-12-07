@@ -15,6 +15,9 @@
     "build:win32": "nextron build --win --ia32",
     "build:win64": "nextron build --win --x64"
   },
+  "build": {
+    "extraResources": "./extraresources/**"
+  },
   "devDependencies": {
     "@electron-forge/cli": "^7.2.0",
     "@electron-forge/maker-deb": "^7.2.0",
