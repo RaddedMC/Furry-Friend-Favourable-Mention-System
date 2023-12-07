@@ -2,6 +2,8 @@ import React, { useEffect } from 'react'
 import Head from 'next/head'
 import LandingPagePet from '../components/LandingPagePet'
 import Link from 'next/link'
+
+const pets = require("../resources/pets.json");
 export default function HomePage() {
 
 	let scrollDirection = 1;
@@ -49,10 +51,7 @@ export default function HomePage() {
 					<div className='flex flex-col bg-black bg-opacity-70 rounded-3xl w-2/3 mt-2'>
 						<p className='m-2 ml-4'>You could get any one of these pets!</p>
 						<div className='flex flex-row overflow-x-auto scroll-smooth' id='scrollContainer'>
-							<LandingPagePet imageUrl='https://i1.sndcdn.com/artworks-FZYtcnfgLHJp52Q2-lEfruQ-t500x500.jpg' name='Dog'/>
-							<LandingPagePet imageUrl='https://i1.sndcdn.com/artworks-FZYtcnfgLHJp52Q2-lEfruQ-t500x500.jpg' name='Dog'/>
-							<LandingPagePet imageUrl='https://i1.sndcdn.com/artworks-FZYtcnfgLHJp52Q2-lEfruQ-t500x500.jpg' name='Dog'/>
-							<LandingPagePet imageUrl='https://i1.sndcdn.com/artworks-FZYtcnfgLHJp52Q2-lEfruQ-t500x500.jpg' name='Dog'/>
+							{ Object.keys(pets).map((petName) => <LandingPagePet imageUrl={pets[petName].imageurl.slice(1)} name={petName} />) }
 						</div>
 					</div>
 					<Link href="/question1">

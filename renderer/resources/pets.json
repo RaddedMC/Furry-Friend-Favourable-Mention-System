@@ -25,48 +25,48 @@
         "space": 3,
         "time": 2,
         "experience": 3,
-        "imageurl": "./images/hamster"
+        "imageurl": "./images/hamster.jpg"
     },
     "Rabbit":{
         "money": 2,
         "space": 4,
         "time": 3,
         "experience": 4,
-        "imageurl": "./images/rabbit"
+        "imageurl": "./images/rabbit.jpg"
     },
     "Lizard": {
         "money": 7,
         "space": 2,
         "time": 4,
         "experience": 7,
-        "imageurl": "./images/lizard"
+        "imageurl": "./images/lizard.jpg"
     },
     "Gecko":{
         "money": 7,
         "space": 2,
         "time": 4,
         "experience": 8,
-        "imageurl": "./images/gecko"
+        "imageurl": "./images/gecko.jpg"
     },
     "Snake": {
         "money": 10,
         "space": 2,
         "time": 7,
         "experience": 2,
-        "imageurl": "./images/snake"
+        "imageurl": "./images/snake.jpg"
     },
     "Rat": {
         "money": 3,
         "space": 1,
         "time": 2,
         "experience": 2,
-        "imageurl": "./images/rat"
+        "imageurl": "./images/rat.jpg"
     },
     "Bird": {
         "money": 7,
         "space": 1,
         "time": 6,
         "experience": 9,
-        "imageurl": "./images/bird"
+        "imageurl": "./images/bird.jpg"
     }
 }
