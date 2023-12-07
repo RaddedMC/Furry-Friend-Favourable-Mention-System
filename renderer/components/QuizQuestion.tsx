@@ -2,7 +2,6 @@ import { BrowserWindow, ipcMain, ipcRenderer } from 'electron';
 import Link from 'next/link'
 import { ChangeEventHandler, SetStateAction, useEffect, useState } from 'react';
 
-
 type questionprops = {
 	title: string,
 	leftlabel: string,
@@ -11,6 +10,7 @@ type questionprops = {
 }
 
 let initialized = false
+let finalQ = 6
 
 export default function QuizQuestion(props: questionprops) {
 	const [sliderval, setsliderval] = useState(5);
@@ -47,7 +47,7 @@ export default function QuizQuestion(props: questionprops) {
 	const handleNext = (e: { preventDefault: () => void; target: { value: SetStateAction<string>; }; }) => {
 		e.preventDefault();
 		window.questionsAPI.setqresponse({ q: props.qnum, val: sliderval })
-		if(Number(props.qnum) >= 2) {
+		if(Number(props.qnum) >= finalQ) {
 			window.location.href = "/result"
 			return;
 		}
