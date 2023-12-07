@@ -31,19 +31,17 @@
 [todo]()
 
 # Table of Contents 
-Section  | Page
--|-
-Diagrams | 1
-[Usage Manual](#usage-manual) | 1
+| Section                       | Page |
+| ----------------------------- | ---- |
+| Diagrams                      | 1    |
+| [Usage Manual](#usage-manual) | 1    |
 
 # Diagrams
 <div class="diagrams">
 
-## Use Case
+![Use Case Diagram](docs/usecase.png)
 
-![](docs/usecase.png)
-
-
+![State Diagram](docs/state.png)
 </div>
 
 # Usage Manual
