@@ -1,5 +1,5 @@
 import path from 'path'
-import { app, ipcMain } from 'electron'
+import { IpcMainEvent, dialog, app, ipcMain } from 'electron'
 import serve from 'electron-serve'
 import { createWindow } from './helpers'
 
@@ -13,13 +13,6 @@ let selectedState = {
 }
 let questions = {}
 
-function setquestion(event, questionID, val) {
-  questions[questionID] = val;
-  console.log(questions);
-  
-}
-
-
 if (isProd) {
   serve({ directory: 'app' })
 } else {
@@ -28,8 +21,6 @@ if (isProd) {
 
 ;(async () => {
   await app.whenReady()
-
-  ipcMain.on('setquestion', setquestion);
 
   const mainWindow = createWindow('main', {
     width: 1000,
@@ -56,4 +47,14 @@ app.on('window-all-closed', () => {
 
 ipcMain.on('message', async (event, arg) => {
   event.reply('message', `${arg} World!`)
+})
+
+ipcMain.handle("setquestion", (event, args) => {
+  const {q, val} = args
+  questions[q] = val
+  console.log(questions)
+})
+
+ipcMain.handle('getqvals', () => {
+  return JSON.stringify(questions)
 })
