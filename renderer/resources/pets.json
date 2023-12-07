@@ -4,69 +4,69 @@
         "space": 10,
         "time": 8,
         "experience": 5,
-        "imageurl": "./images/dog.jpg"
+        "imageurl": "https://hips.hearstapps.com/hmg-prod/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg"
     },
     "Cat": {
         "money": 4,
         "space": 7,
         "time": 4,
         "experience": 4,
-        "imageurl": "./images/cat.jpg"
+        "imageurl": "https://hips.hearstapps.com/hmg-prod/images/why-cats-are-best-pets-grooming-1559232969.jpg"
     },
     "Fish":{
         "money": 3,
         "space": 1,
         "time": 2,
         "experience": 1,
-        "imageurl": "./images/fish.jpg"
+        "imageurl": "https://images.saymedia-content.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:eco%2Cw_1200/MTc0NDM2NTA1MDYwNjQ4NTgy/the-healing-power-of-pet-fish.jpg"
     },
     "Hamster":{
         "money": 1,
         "space": 3,
         "time": 2,
         "experience": 3,
-        "imageurl": "./images/hamster"
+        "imageurl": "https://www.vetcarepethospital.ca/wp-content/uploads/sites/247/2022/03/hamster1.jpg"
     },
     "Rabbit":{
         "money": 2,
         "space": 4,
         "time": 3,
         "experience": 4,
-        "imageurl": "./images/rabbit"
+        "imageurl": "https://spca.bc.ca/wp-content/uploads/rabbit-lop-eared-looking-curious.jpg"
     },
     "Lizard": {
         "money": 7,
         "space": 2,
         "time": 4,
         "experience": 7,
-        "imageurl": "./images/lizard"
+        "imageurl": "https://allanspetcenter.com/wp-content/uploads/2020/09/lizard-1522253_1280-645x430.jpg"
     },
     "Gecko":{
         "money": 7,
         "space": 2,
         "time": 4,
         "experience": 8,
-        "imageurl": "./images/gecko"
+        "imageurl": "https://www.zillarules.com/-/media/project/oneweb/zilla/images/blog-articles/6-types-of-pet-geckos/tokay-gecko.jpg?h=334&w=500&hash=55C981D8F1980D51A9C53EDA3FEC96C3"
     },
     "Snake": {
         "money": 10,
         "space": 2,
         "time": 7,
         "experience": 2,
-        "imageurl": "./images/snake"
+        "imageurl": "https://www.thesprucepets.com/thmb/NveQAwJyuwgCOdJlj3EW9c3881g=/1731x0/filters:no_upscale():strip_icc()/Stocksy_txp473912dbIzw100_Medium_1167722-5afa07341d640400363baf44.jpg"
     },
     "Rat": {
         "money": 3,
         "space": 1,
         "time": 2,
         "experience": 2,
-        "imageurl": "./images/rat"
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Ratte-Vache.jpeg/1200px-Ratte-Vache.jpeg"
     },
     "Bird": {
         "money": 7,
         "space": 1,
         "time": 6,
         "experience": 9,
-        "imageurl": "./images/bird"
+        "imageurl": "https://www.thesprucepets.com/thmb/r23RBk0t4DC9UHp2pTzuXLz7Jj4=/3600x0/filters:no_upscale():strip_icc()/popular-small-bird-species-390926-hero-d3d0af7bb6ed4947b0c3c5afb4784456.jpg"
     }
 }
