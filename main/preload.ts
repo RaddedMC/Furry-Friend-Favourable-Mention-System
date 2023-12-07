@@ -17,13 +17,13 @@ const handler = {
 }
 contextBridge.exposeInMainWorld('ipc', handler)
 
-contextBridge.exposeInMainWorld('electronAPI', {
-  setQuestion: (question, val) => {
-    ipcRenderer.send('setquestion', question, val)
-    console.log("dsada");
-  }
-})
-
+contextBridge.exposeInMainWorld('questionsAPI', {
+  setqresponse: (args) => {
+    ipcRenderer.invoke('setquestion', args)
+    return "hi";
+  },
+  getqs: () => ipcRenderer.invoke('getqvals')
+});
 
 export type IpcHandler = typeof handler
 

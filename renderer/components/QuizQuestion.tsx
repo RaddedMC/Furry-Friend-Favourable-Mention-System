@@ -1,49 +1,57 @@
+import { BrowserWindow, ipcMain, ipcRenderer } from 'electron';
 import Link from 'next/link'
+import { ChangeEventHandler, SetStateAction, useEffect, useState } from 'react';
+
+let value = "50";
 
 type questionprops = {
 	title: string,
 	leftlabel: string,
 	rightlabel: string,
-	default: string,
 	qnum: string
 }
 
+let initialized = false
+
 export default function QuizQuestion(props: questionprops) {
-	const slider = document.getElementById("slider");
-	const output = document.getElementById("description");
-	const back = document.getElementById("back");
-	const next = document.getElementById("next");
-	let input = props.default
+	const [sliderval, setsliderval] = useState(50);
 	let hideback = true // set to false later if we wanna implement
 	var prevlink = "question" + String(Number(props.qnum) - 1);
 	var nextlink = "question" + String(Number(props.qnum) + 1);
 
-	if (Number(props.qnum) == 1) {
-		hideback = true
+	if (Number(props.qnum) != 1) {
+		hideback = false
 	}
 
-
-	if (slider instanceof HTMLInputElement) {
-		slider.oninput = () => {
-			output.innerHTML = slider.value;
-			slider.value = slider.value;
-			input = slider.value
+	useEffect(() => {
+		if(!initialized) {
+			initialized = true
+			window.questionsAPI.getqs().then(vals => {
+				let qvals = JSON.parse(vals)
+				if (qvals[props.qnum]) {
+					console.log(qvals[props.qnum])
+					setsliderval(qvals[props.qnum])
+				}
+			})
 		}
+	})
+
+	const handleSlider = (e: { preventDefault: () => void; target: { value: SetStateAction<string>; }; }) => {
+		e.preventDefault();
+		value = e.target.value.valueOf();
+		setsliderval(e.target.value);
 	}
 
-	if (back instanceof HTMLButtonElement) {
-		back.onclick = () => {
-			console.log("back");
-		}
+	const handleBack = (e: { preventDefault: () => void; target: { value: SetStateAction<string>; }; }) => {
+		e.preventDefault();
+		window.location.href = "/question" + String(Number(props.qnum) - 1)
+		window.questionsAPI.setqresponse({ q: props.qnum, val: sliderval });
 	}
 
-	if (next instanceof HTMLButtonElement) {
-		next.onclick = () => {
-
-			if (slider instanceof HTMLInputElement) {
-				window.electronAPI.setQuestion({ question: props.qnum, number: slider.value });
-			}
-		}
+	const handleNext = (e: { preventDefault: () => void; target: { value: SetStateAction<string>; }; }) => {
+		e.preventDefault();
+		window.location.href = "/question" + String(Number(props.qnum) + 1)
+		window.questionsAPI.setqresponse({ q: props.qnum, val: sliderval })
 	}
 
 	return (
@@ -56,9 +64,9 @@ export default function QuizQuestion(props: questionprops) {
 
 			<br /><br /><br />
 			<div className=" rounded items-center flex flex-col w-full">
-				<p id="description">50</p>
+				<p id="description">{sliderval}</p>
 				<input className="w-3/4" type="range" min="0" max="100"
-					defaultValue="50" id="slider" />
+					id="slider" value={sliderval} onChange={handleSlider} />
 			</div>
 			<div className=" rounded items-center flex flex-row w-full">
 				<div className="mx-10 px-10">{props.leftlabel}</div>
@@ -67,8 +75,7 @@ export default function QuizQuestion(props: questionprops) {
 			</div>
 			<div className=" rounded items-center flex flex-row w-full">
 				<div className=" rounded flex flex-row w-quarter" >
-					<Link href={prevlink}>
-						<button hidden={hideback} className='
+					<button hidden={hideback} className='
 						mt-8
 						bg-gradient-to-r
 						from-cyan-500
@@ -91,11 +98,12 @@ export default function QuizQuestion(props: questionprops) {
 						active:from-cyan-700
 						active:to-purple-700
 						active:text-white'
-							id="back">back</button>
-					</Link>
+						id="back"
+						onClick={handleBack}>back</button>
 				</div>
 				<div className="flex-grow flex flex-row w-quarter" />
 				<div className=" rounded flex flex-row w-quarter" >
+
 					<button className='mt-8
 						bg-gradient-to-r
 						from-cyan-500
@@ -119,6 +127,7 @@ export default function QuizQuestion(props: questionprops) {
 						active:to-purple-700
 						active:text-white'
 						id="next"
+						onClick={handleNext}
 					>next</button>
 				</div>
 
