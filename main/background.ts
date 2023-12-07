@@ -13,6 +13,8 @@ for (let petkey in pets) {
   pet["vector"] = [pet[axis[0]], pet[axis[1]], pet[axis[2]], pet[axis[3]]]
 }
 
+
+let completed = false;
 let questions = {}
 const vectorDistance = (x, y) => Math.sqrt(x.reduce((acc, val, i) => acc + Math.pow(val - y[i], 2), 0));
 
@@ -54,17 +56,19 @@ ipcMain.on('message', async (event, arg) => {
 
 ipcMain.handle("setquestion", (event, args) => {
   const { q, val } = args
-  if(q == "1") {
-    questions = {}
-  }
   questions[q] = val
 })
 
 ipcMain.handle('getqvals', () => {
+  if (completed) {
+    questions = {}
+    completed = false
+  }
   return JSON.stringify(questions)
 })
 
 ipcMain.handle('submit', () => {
+  completed = true;
   let result = [0, 0, 0, 0]
   let cardinals = [0, 0, 0, 0]
   for (let qid in questions) {
@@ -86,5 +90,5 @@ ipcMain.handle('submit', () => {
       minkey = p;
     }
   }
-  return JSON.stringify({name: minkey, desc: pets[minkey]["description"], img: pets[minkey]["imageurl"]})
+  return JSON.stringify({ name: minkey, desc: pets[minkey]["description"], img: pets[minkey]["imageurl"] })
 })
