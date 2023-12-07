@@ -4,13 +4,16 @@
   "description": "A pet recommendation quiz, made with Electron.",
   "main": "app/background.js",
   "scripts": {
-    "build": "./node_modules/.bin/tsc",
+    "build": "nextron build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nextron",
     "postinstall": "electron-builder install-app-deps",
     "start": "electron-forge start",
     "package": "electron-forge package",
-    "make": "electron-forge make"
+    "make": "electron-forge make",
+    "build:linux": "nextron build --linux",
+    "build:win32": "nextron build --win --ia32",
+    "build:win64": "nextron build --win --x64"
   },
   "devDependencies": {
     "@electron-forge/cli": "^7.2.0",
@@ -60,7 +63,6 @@
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.14.20",
-    "electron-packager": "^17.1.2",
     "electron-serve": "^1.1.0",
     "electron-squirrel-startup": "^1.0.0",
     "electron-store": "^8.1.0",

@@ -11,3 +11,4 @@ tsconfig.tsbuildinfo
 README.*
 !README.md
 !*README.css
+*.zip
