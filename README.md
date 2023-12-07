@@ -33,9 +33,18 @@
 # Table of Contents 
 Section  | Page
 -|-
+Diagrams | 1
 [Usage Manual](#usage-manual) | 1
-[]()
 
+# Diagrams
+<div class="diagrams">
+
+## Use Case
+
+![](docs/usecase.png)
+
+
+</div>
 
 # Usage Manual
 
