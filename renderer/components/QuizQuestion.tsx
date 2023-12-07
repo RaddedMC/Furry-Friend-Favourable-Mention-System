@@ -1,8 +1,6 @@
 import Link from 'next/link'
 import { ChangeEventHandler, MouseEventHandler, SetStateAction, useEffect, useState } from 'react';
 
-const tempwindow: any = window;
-
 type questionprops = {
 	title: string,
 	leftlabel: string,
@@ -34,6 +32,8 @@ export default function QuizQuestion(props: questionprops) {
 	useEffect(() => {
 		if (!initialized) {
 			initialized = true
+			const tempwindow: any = window;
+
 			tempwindow.questionsAPI.getqs().then(vals => {
 				let qvals = JSON.parse(vals)
 				if (qvals[props.qnum]) {
@@ -50,11 +50,15 @@ export default function QuizQuestion(props: questionprops) {
 	}
 
 	const handleBack: MouseEventHandler = (e) => {
+		const tempwindow: any = window;
+
 		tempwindow.questionsAPI.setqresponse({ q: props.qnum, val: sliderval });
 		window.location.href = "/question" + String(Number(props.qnum) - 1)
 	}
 	const handleNext: MouseEventHandler = (e) => {
-		tempwindow.questionsAPI.setqresponse({ q: props.qnum, val: [props.type, sliderval] })
+		
+const tempwindow: any = window;
+tempwindow.questionsAPI.setqresponse({ q: props.qnum, val: [props.type, sliderval] })
 		if(Number(props.qnum) >= finalQ) {
 			window.location.href = "/result"
 			return;

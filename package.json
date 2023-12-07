@@ -2,7 +2,7 @@
   "name": "furry-friend-favourable-mention-system",
   "version": "1.0.0",
   "description": "A pet recommendation quiz, made with Electron.",
-  "main": "main/background.js",
+  "main": "app/background.js",
   "scripts": {
     "build": "./node_modules/.bin/tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
