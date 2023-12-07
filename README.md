@@ -4,8 +4,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="docs/README.css">
 </head>
+<div class="title">
 
 # Furry Friend Favourable Mention System
+</div>
+
 ### SE3351 Final Project
 
 <div class="intro">
@@ -53,7 +56,6 @@
 ![ ](docs/state.png)
 </div>
 
-<div class="pagebreak"></div>
 
 # System Design
 
