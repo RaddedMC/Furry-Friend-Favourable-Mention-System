@@ -134,34 +134,45 @@ for (petindex in pets){                                         // find the mini
 ## Disadvantages
 Compared to a binary tree, modifying the one of the response vectors will likely change the outputs of a pretty large region in the subspace, and it is difficult to fine tune if you have exact responses you want from exact inputs. This method is much better for surveys are have many gray areas rather than those with an expected exact ouput for each input.
 
+
+<div class="pagebreak"></div>
+
 # Usage Manual
 
 ## Home Page Introduction
 
 Once launching the application, it will welcome the user with an amazing design and animation showing all the possible pets the user can get. 
 They will then be prompted with a button that says “Take the quiz”.
+<div class="screenshot">
 
-![Alt text](docs/image.png)
+![](docs/image.png)
+</div>
 
 ## Taking the quiz
 
 After initiating the quiz by selecting the "Take the quiz" button, users will engage in a series of 11 questions designed to gain insights into their lifestyle and preferences. The questions are formatted to be answered on a scale from 1 to 10, with the right end representing an extreme response, and the left indicating a lower intensity.
 To navigate through the questionnaire, users can effortlessly move to the next question by clicking the "Next" button. Additionally, if a user wisher to modify their answers or reconsider their choices, the "Back" button is available to naviage back to the previous question. This user-friendly approach allows individuals to provide thoughtful responses while maintaining the flexibility to review and adjust their answers as needed. Once the user has reached the last question, the user will be able to submit their results through the “Submit results” button.
+<div class="screenshot">
 
-![Alt text](docs/image-1.png)
-![Alt text](image.png)
+![](docs/image-1.png)
+</div>
 
 ## Viewing the results:
 
 After the user has answered all of the questions provided, the answers are used to form the most likely answer from the available pets. The user's answers help the program decide what pet fits them the best. And then the answer is displayed to the user along with an image and brief description of the animal.
+<div class="screenshot">
 
-![Alt text](docs/image-2.png)
+![](docs/image-2.png)
+</div>
 
 ## User Feedback
 
 This is a function that lets us collect the user’s thoughts on the program after they have completed a successful run. After the user has seen their results from the program, they are brought to the feedback window. This window allows the user to rate the program between one and five stars. If they wish, they can also enter comments on the program containing their opinions and recommendations. They can then click cancel or submit. Cancel clears the user’s comments and shuts down the program. Submit still shuts down the program but sends the user’s thoughts and review to us.
 
-![Alt text](docs/image-3.png)
+<div class="screenshot">
+
+![](docs/image-3.png)
+</div>
 
 ## Trying Again
 
