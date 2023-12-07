@@ -54,6 +54,9 @@ ipcMain.on('message', async (event, arg) => {
 
 ipcMain.handle("setquestion", (event, args) => {
   const { q, val } = args
+  if(q == "1") {
+    questions = {}
+  }
   questions[q] = val
 })
 
@@ -74,7 +77,6 @@ ipcMain.handle('submit', () => {
   for (let i in result) {
     result[i] /= cardinals[i]
   }
-
   let minkey = "Dog";
   let min = vectorDistance(pets[minkey]["vector"], result)
   for (let p in pets) {
@@ -84,6 +86,5 @@ ipcMain.handle('submit', () => {
       minkey = p;
     }
   }
-  questions = {}
   return JSON.stringify({name: minkey, desc: pets[minkey]["description"]})
 })

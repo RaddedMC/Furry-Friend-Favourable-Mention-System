@@ -31,7 +31,7 @@ export default function SurveyPage() {
                 <p className='mt-2 text-center flex-wrap max-w-md'>{description}</p>
 
                 <div className='flex content-center flex-row center bg-black bg-opacity-70 rounded-3xl'>
-                    <LandingPagePet imageUrl='https://i1.sndcdn.com/artworks-FZYtcnfgLHJp52Q2-lEfruQ-t500x500.jpg' name='Dog' />
+                    <LandingPagePet imageUrl='' name={pet} />
                 </div>
                 <Link href="/home">
                     <button className='mt-8
