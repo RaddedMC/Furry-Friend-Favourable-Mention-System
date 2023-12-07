@@ -51,7 +51,7 @@ export default function HomePage() {
 					<div className='flex flex-col bg-black bg-opacity-70 rounded-3xl w-2/3 mt-2'>
 						<p className='m-2 ml-4'>You could get any one of these pets!</p>
 						<div className='flex flex-row overflow-x-auto scroll-smooth' id='scrollContainer'>
-							{ Object.keys(pets).map((petName) => <LandingPagePet key={petName} imageUrl={pets[petName].imageurl.slice(1)} name={petName} />) }
+							{ Object.keys(pets).map((petName) => <LandingPagePet key={petName} imageUrl={pets[petName].imageurl} name={petName} />) }
 						</div>
 					</div>
 					<Link href="/question1">

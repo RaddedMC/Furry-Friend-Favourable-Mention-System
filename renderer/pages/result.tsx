@@ -7,12 +7,14 @@ import LandingPagePet from '../components/LandingPagePet';
 export default function SurveyPage() {
     const [pet, setpet] = useState("")
     const [description, setdesc] = useState("")
+    const [image, setimg] = useState("")
 
     useEffect(() => {
         window.questionsAPI.getresult().then(res => {
             const petobj = JSON.parse(res) 
             setpet(petobj["name"]);
             setdesc(petobj["desc"]);
+            setimg(petobj["img"]);
             console.log(pet, description);
         })
     })
@@ -31,7 +33,7 @@ export default function SurveyPage() {
                 <p className='mt-2 text-center flex-wrap max-w-md'>{description}</p>
 
                 <div className='flex content-center flex-row center bg-black bg-opacity-70 rounded-3xl'>
-                    <LandingPagePet imageUrl='' name={pet} />
+                    <LandingPagePet imageUrl={image} name={pet} />
                 </div>
                 <Link href="/home">
                     <button className='mt-8

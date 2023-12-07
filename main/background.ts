@@ -86,5 +86,5 @@ ipcMain.handle('submit', () => {
       minkey = p;
     }
   }
-  return JSON.stringify({name: minkey, desc: pets[minkey]["description"]})
+  return JSON.stringify({name: minkey, desc: pets[minkey]["description"], img: pets[minkey]["imageurl"]})
 })
