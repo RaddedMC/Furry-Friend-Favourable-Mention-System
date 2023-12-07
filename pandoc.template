@@ -1,0 +1,7 @@
+---
+mainfont: Raleway
+mainfontoptions:
+- BoldFont=Font-Bold.otf
+- ItalicFont=Font-Italic.otf
+- BoldItalicFont=Font-BoldItalic.otf
+---

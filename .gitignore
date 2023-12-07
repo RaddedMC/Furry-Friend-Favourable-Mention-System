@@ -8,3 +8,6 @@ out/
 forge.config*
 *ignore
 tsconfig.tsbuildinfo
+README.*
+!README.md
+!*README.css

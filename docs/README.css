@@ -1,0 +1,34 @@
+
+html,body,h1,h2,h3,h4,h5,h6 {
+    font-family: "Raleway", sans-serif ;
+  }
+  h1 {
+    text-align: center;
+  }
+  #se3351-final-project {
+    margin: 0px;
+    text-align: center;
+  }
+  #authors {
+    text-align: center;
+  }
+  .intro {
+    width: 100%;
+    align-self: center;
+    align-content: center;
+    text-align: center;
+    align-items: center;
+  }
+  table {
+    border: 1px solid black;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  tbody {
+    border: 1px solid black;
+    margin: 0px;
+  }
+  td {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
