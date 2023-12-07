@@ -11,6 +11,7 @@ type questionprops = {
 	qnum: string
 }
 
+const finalIndex = 11;
 let initialized = false
 
 export default function QuizQuestion(props: questionprops) {
@@ -51,11 +52,19 @@ export default function QuizQuestion(props: questionprops) {
 		window.questionsAPI.setqresponse({ q: props.qnum, val: sliderval });
 	}
 
-	const handleNext = (e: { preventDefault: () => void; target: { value: SetStateAction<string>; }; }) => {
+	const handleNext = (e: {
+		preventDefault: () => void;
+		target: { value: SetStateAction<string> };
+	  }) => {
 		e.preventDefault();
-		window.location.href = "/question" + String(Number(props.qnum) + 1)
-		window.questionsAPI.setqresponse({ q: props.qnum, val: sliderval })
-	}
+		if (Number(props.qnum) === finalIndex) {
+		  // Handle submission logic here
+		  console.log("Submit Results");
+		} else {
+		  window.location.href = `/${nextlink}`;
+		  window.questionsAPI.setqresponse({ q: props.qnum, val: sliderval });
+		}
+	  };
 
 	return (
 		<div className=" h-screen items-center flex flex-col justify-center">
@@ -131,7 +140,9 @@ export default function QuizQuestion(props: questionprops) {
 						active:text-white'
 						id="next"
 						onClick={handleNext}
-					>next</button>
+					>
+					{Number(props.qnum) === finalIndex ? "Submit Results" : "next"}
+					</button>
 				</div>
 
 			</div>
