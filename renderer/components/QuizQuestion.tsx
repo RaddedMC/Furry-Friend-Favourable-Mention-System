@@ -9,9 +9,8 @@ type questionprops = {
 	qnum: string
 }
 
-const finalIndex = 11;
 let initialized = false
-let finalQ = 6
+let finalQ = 11
 
 export default function QuizQuestion(props: questionprops) {
 	const [sliderval, setsliderval] = useState(5);
@@ -33,7 +32,6 @@ export default function QuizQuestion(props: questionprops) {
 	useEffect(() => {
 		if (!initialized) {
 			initialized = true
-<<<<<<< HEAD
 			window.questionsAPI.getqs().then(vals => {
 				let qvals = JSON.parse(vals)
 				if (qvals[props.qnum]) {
@@ -41,9 +39,6 @@ export default function QuizQuestion(props: questionprops) {
 					setsliderval(qvals[props.qnum][1])
 				}
 			})
-=======
-			window.questionsAPI.setqresponse({ q: props.qnum, val: sliderval })
->>>>>>> surveryQuestionsAsh
 		}
 	}, []) // only run once	
 
@@ -63,7 +58,6 @@ export default function QuizQuestion(props: questionprops) {
 		target: { value: SetStateAction<string> };
 	  }) => {
 		e.preventDefault();
-<<<<<<< HEAD
 		window.questionsAPI.setqresponse({ q: props.qnum, val: [props.type, sliderval] })
 		if(Number(props.qnum) >= finalQ) {
 			window.location.href = "/result"
@@ -71,16 +65,6 @@ export default function QuizQuestion(props: questionprops) {
 		}
 		window.location.href = "/question" + String(Number(props.qnum) + 1)
 	}
-=======
-		if (Number(props.qnum) === finalIndex) {
-		  // Handle submission logic here
-		  console.log("Submit Results");
-		} else {
-		  window.location.href = `/${nextlink}`;
-		  window.questionsAPI.setqresponse({ q: props.qnum, val: sliderval });
-		}
-	  };
->>>>>>> surveryQuestionsAsh
 
 	return (
 		<div className=" h-screen items-center flex flex-col justify-center">
@@ -157,7 +141,7 @@ export default function QuizQuestion(props: questionprops) {
 						id="next"
 						onClick={handleNext}
 					>
-					{Number(props.qnum) === finalIndex ? "Submit Results" : "next"}
+					{Number(props.qnum) === finalQ ? "Submit Results" : "next"}
 					</button>
 				</div>
 
