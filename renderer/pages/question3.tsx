@@ -9,7 +9,7 @@ export default function SurveyPage() {
 			<Head>
 				<title>Survey</title>
 			</Head>
-			<QuizQuestion title="What is your current financial situation?"leftlabel="Struggling" rightlabel="Mega Rich"qnum="3"></QuizQuestion>
+			<QuizQuestion title="What is your current financial situation?"leftlabel="Struggling" rightlabel="Mega Rich" type="money" qnum="3"></QuizQuestion>
 		</React.Fragment>
 	)
 }

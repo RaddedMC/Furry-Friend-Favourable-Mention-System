@@ -1,0 +1,83 @@
+{
+    "Dog": {
+        "money": 8,
+        "space": 10,
+        "time": 8,
+        "experience": 5,
+        "imageurl": "",
+        "description": "Dogs are very loyal and social animals. They come in various breeds and sizes. They have strong bonds with humans, often serving alongside them as working animals. They are also kept as pets and are known to be very playful and affectionate."
+    },
+    "Cat": {
+        "money": 4,
+        "space": 7,
+        "time": 4,
+        "experience": 4,
+        "imageurl": "",
+        "description": "Cats are very agile and independent characters. They are both graceful and mysterious. They are known to be very playful and affectionate."
+    },
+    "Fish":{
+        "money": 3,
+        "space": 1,
+        "time": 2,
+        "experience": 1,
+        "imageurl": "",
+        "description": "Fish are aquatic vertebrates with diverse species belonging to freshwater or saltwater environments. They exhibit a fascinating array of colors, patterns and behaviors making them very popular"
+
+    },
+    "Hamster":{
+        "money": 1,
+        "space": 3,
+        "time": 2,
+        "experience": 3,
+        "imageurl": "",
+        "description": "Hamsters are small rodents known for their cheek pouches and nocturnal habits. They are well known for they're compact size, low maintenance and amusing antics"
+    },
+    "Rabbit":{
+        "money": 2,
+        "space": 4,
+        "time": 3,
+        "experience": 4,
+        "imageurl": "",
+        "description": "Rabbits are gentle creatures known for long ears and powerful hind lugs. They are very docile and can be social with other rabbits."
+    },
+    "Lizard": {
+        "money": 7,
+        "space": 2,
+        "time": 4,
+        "experience": 7,
+        "imageurl": "",
+        "description": "Lizards are a group of reptiles characterized by scales, body type and a range of species. They can be found in different environments from rainforests to deserts. They also have interesting behaviors like basking and rapid movement"
+    },
+    "Gecko":{
+        "money": 7,
+        "space": 2,
+        "time": 4,
+        "experience": 8,
+        "imageurl": "",
+        "description": "Geckos are small lizards known for their distinctive vocalization, adhesive toe pads, and ability to climb surfaces. People keep them as pets for their unique appearence and intriguing behaviours"
+    },
+    "Snake": {
+        "money": 10,
+        "space": 2,
+        "time": 7,
+        "experience": 2,
+        "imageurl": "",
+        "description": "Snakes are limbless reptiles with long bodies and scales. They range from harmless to venomous. They play a vital role in ecosystems by controlling rodent populations. Some enthusiasts keep them as pets"
+    },
+    "Rat": {
+        "money": 3,
+        "space": 1,
+        "time": 2,
+        "experience": 2,
+        "imageurl": "",
+        "description": "Rats are intelligent rodents with a scoial nature and reputation for problem solving. Domesticated rats are kept as pets for their unique appearence and intriguing behaviours."
+    },
+    "Bird": {
+        "money": 7,
+        "space": 1,
+        "time": 6,
+        "experience": 9,
+        "imageurl": "",
+        "description": "Birds are feathered, warm blooded creatures with remarkable diversity, ranging from small birds to large raptors. They are admired for their ability to fly, sing, and exhibit a wide array of vibrant plumage. They are also kept as pets for their intelligence and social nature."
+    }
+}
