@@ -22,7 +22,8 @@ contextBridge.exposeInMainWorld('questionsAPI', {
     ipcRenderer.invoke('setquestion', args)
     return "hi";
   },
-  getqs: () => ipcRenderer.invoke('getqvals')
+  getqs: () => ipcRenderer.invoke('getqvals'),
+  getresult: () => ipcRenderer.invoke('submit')
 });
 
 export type IpcHandler = typeof handler

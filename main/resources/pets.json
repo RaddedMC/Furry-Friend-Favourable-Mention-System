@@ -1,0 +1,72 @@
+{
+    "Dog": {
+        "money": 8,
+        "space": 10,
+        "time": 8,
+        "experience": 5,
+        "imageurl": "./images/dog.jpg"
+    },
+    "Cat": {
+        "money": 4,
+        "space": 7,
+        "time": 4,
+        "experience": 4,
+        "imageurl": "./images/cat.jpg"
+    },
+    "Fish":{
+        "money": 3,
+        "space": 1,
+        "time": 2,
+        "experience": 1,
+        "imageurl": "./images/fish.jpg"
+    },
+    "Hamster":{
+        "money": 1,
+        "space": 3,
+        "time": 2,
+        "experience": 3,
+        "imageurl": "./images/hamster"
+    },
+    "Rabbit":{
+        "money": 2,
+        "space": 4,
+        "time": 3,
+        "experience": 4,
+        "imageurl": "./images/rabbit"
+    },
+    "Lizard": {
+        "money": 7,
+        "space": 2,
+        "time": 4,
+        "experience": 7,
+        "imageurl": "./images/lizard"
+    },
+    "Gecko":{
+        "money": 7,
+        "space": 2,
+        "time": 4,
+        "experience": 8,
+        "imageurl": "./images/gecko"
+    },
+    "Snake": {
+        "money": 10,
+        "space": 2,
+        "time": 7,
+        "experience": 2,
+        "imageurl": "./images/snake"
+    },
+    "Rat": {
+        "money": 3,
+        "space": 1,
+        "time": 2,
+        "experience": 2,
+        "imageurl": "./images/rat"
+    },
+    "Bird": {
+        "money": 7,
+        "space": 1,
+        "time": 6,
+        "experience": 9,
+        "imageurl": "./images/bird"
+    }
+}

@@ -1,12 +1,21 @@
-import React, { Component, useState } from 'react'
+import React, { Component, useState, useEffect } from 'react'
 import Head from 'next/head'
 import Link from 'next/link';
 import LandingPagePet from '../components/LandingPagePet';
 
 
 export default function SurveyPage() {
-    let pet = "Dog"
-    let description = ""
+    const [pet, setpet] = useState("")
+    const [description, setdesc] = useState("")
+
+    useEffect(() => {
+        window.questionsAPI.getresult().then(res => {
+            const petobj = JSON.parse(res) 
+            setpet(petobj["name"]);
+            setdesc(petobj["desc"]);
+            console.log(pet, description);
+        })
+    })
 
     return (
         <React.Fragment>
@@ -19,7 +28,7 @@ export default function SurveyPage() {
                     </br><b>{pet}!</b>
                 </h1>
 
-                <p className='mt-2 text-center'>{description}</p>
+                <p className='mt-2 text-center flex-wrap max-w-md'>{description}</p>
 
                 <div className='flex content-center flex-row center bg-black bg-opacity-70 rounded-3xl'>
                     <LandingPagePet imageUrl='https://i1.sndcdn.com/artworks-FZYtcnfgLHJp52Q2-lEfruQ-t500x500.jpg' name='Dog' />
