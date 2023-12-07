@@ -2,7 +2,6 @@ import { BrowserWindow, ipcMain, ipcRenderer } from 'electron';
 import Link from 'next/link'
 import { ChangeEventHandler, SetStateAction, useEffect, useState } from 'react';
 
-let value = "50";
 
 type questionprops = {
 	title: string,
@@ -14,10 +13,8 @@ type questionprops = {
 let initialized = false
 
 export default function QuizQuestion(props: questionprops) {
-	const [sliderval, setsliderval] = useState(50);
+	const [sliderval, setsliderval] = useState(5);
 	let hideback = true // set to false later if we wanna implement
-	var prevlink = "question" + String(Number(props.qnum) - 1);
-	var nextlink = "question" + String(Number(props.qnum) + 1);
 
 	if (Number(props.qnum) != 1) {
 		hideback = false
@@ -38,20 +35,23 @@ export default function QuizQuestion(props: questionprops) {
 
 	const handleSlider = (e: { preventDefault: () => void; target: { value: SetStateAction<string>; }; }) => {
 		e.preventDefault();
-		value = e.target.value.valueOf();
 		setsliderval(e.target.value);
 	}
 
 	const handleBack = (e: { preventDefault: () => void; target: { value: SetStateAction<string>; }; }) => {
 		e.preventDefault();
-		window.location.href = "/question" + String(Number(props.qnum) - 1)
 		window.questionsAPI.setqresponse({ q: props.qnum, val: sliderval });
+		window.location.href = "/question" + String(Number(props.qnum) - 1)
 	}
 
 	const handleNext = (e: { preventDefault: () => void; target: { value: SetStateAction<string>; }; }) => {
 		e.preventDefault();
-		window.location.href = "/question" + String(Number(props.qnum) + 1)
 		window.questionsAPI.setqresponse({ q: props.qnum, val: sliderval })
+		if(Number(props.qnum) >= 2) {
+			window.location.href = "/result"
+			return;
+		}
+		window.location.href = "/question" + String(Number(props.qnum) + 1)
 	}
 
 	return (
@@ -65,7 +65,7 @@ export default function QuizQuestion(props: questionprops) {
 			<br /><br /><br />
 			<div className=" rounded items-center flex flex-col w-full">
 				<p id="description">{sliderval}</p>
-				<input className="w-3/4" type="range" min="0" max="100"
+				<input className="w-3/4" type="range" min="0" max="10" step="0.1"
 					id="slider" value={sliderval} onChange={handleSlider} />
 			</div>
 			<div className=" rounded items-center flex flex-row w-full">
