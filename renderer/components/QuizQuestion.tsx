@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import { ChangeEventHandler, MouseEventHandler, SetStateAction, useEffect, useState } from 'react';
 
 type questionprops = {
@@ -9,6 +8,9 @@ type questionprops = {
 	qnum: string
 }
 
+/**
+ * quiz question template
+ */
 let initialized = false
 let finalQ = 11
 
@@ -20,14 +22,10 @@ export default function QuizQuestion(props: questionprops) {
 		hideback = false
 	}
 
-	useEffect(() => {
-	const handleScroll = () => false;
-    window.addEventListener("scroll", handleScroll);
-    
-    return () => {
-        window.removeEventListener("scroll", handleScroll);
-    };
-	}, []);
+	/**
+	 * sets the initial slider value
+	 * only used when the back button is hit 
+	 */
 
 	useEffect(() => {
 		if (!initialized) {
@@ -44,28 +42,46 @@ export default function QuizQuestion(props: questionprops) {
 		}
 	}, []) // only run once	
 
+	/**
+	 * update slider values when changed 
+	 */
 	const handleSlider = (e: { preventDefault: () => void; target: { value: SetStateAction<string>; }; }) => {
 		e.preventDefault();
 		setsliderval(Number(e.target.value));
 	}
 
+	/**
+	 * find the last page url
+	 * @param e obj for html element
+	 */
 	const handleBack: MouseEventHandler = (e) => {
 		const tempwindow: any = window;
 
 		tempwindow.questionsAPI.setqresponse({ q: props.qnum, val: sliderval });
 		window.location.href = "/question" + String(Number(props.qnum) - 1)
 	}
+	/**
+	 * go to the next page
+	 * @param e 
+	 * @returns 
+	 */
 	const handleNext: MouseEventHandler = (e) => {
-		
-const tempwindow: any = window;
-tempwindow.questionsAPI.setqresponse({ q: props.qnum, val: [props.type, sliderval] })
-		if(Number(props.qnum) >= finalQ) {
+
+		/**
+		 * send the current slider state
+		 */
+		const tempwindow: any = window;
+		tempwindow.questionsAPI.setqresponse({ q: props.qnum, val: [props.type, sliderval] })
+		if (Number(props.qnum) >= finalQ) {
 			window.location.href = "/result"
 			return;
 		}
 		window.location.href = "/question" + String(Number(props.qnum) + 1)
 	}
 
+	/**
+	 * return the react component
+	 */
 	return (
 		<div className=" h-screen items-center flex flex-col justify-center">
 
@@ -141,7 +157,7 @@ tempwindow.questionsAPI.setqresponse({ q: props.qnum, val: [props.type, sliderva
 						id="next"
 						onClick={handleNext}
 					>
-					{Number(props.qnum) === finalQ ? "Submit Results" : "next"}
+						{Number(props.qnum) === finalQ ? "Submit Results" : "next"}
 					</button>
 				</div>
 

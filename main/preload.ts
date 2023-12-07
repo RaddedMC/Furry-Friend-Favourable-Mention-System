@@ -1,5 +1,8 @@
 import { contextBridge, ipcRenderer, IpcRendererEvent } from 'electron'
 
+/**
+ * handler for basic IPC events
+ */
 const handler = {
   send(channel: string, value: unknown) {
     ipcRenderer.send(channel, value)
@@ -17,6 +20,9 @@ const handler = {
 }
 contextBridge.exposeInMainWorld('ipc', handler)
 
+/**
+ * handkler for survey question information and image URLs
+ */
 contextBridge.exposeInMainWorld('questionsAPI', {
   setqresponse: (args) => {
     ipcRenderer.invoke('setquestion', args)

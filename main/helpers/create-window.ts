@@ -1,3 +1,8 @@
+/**
+ * DO NOT MODIFY
+ * GENERATED CODE
+ */
+
 import {
   screen,
   BrowserWindow,

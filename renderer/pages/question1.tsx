@@ -2,7 +2,7 @@ import React, { Component, useState} from 'react'
 import Head from 'next/head'
 import QuizQuestion from '../components/QuizQuestion';
 
-
+//survey q1
 export default function SurveyPage() {
 
 	return (

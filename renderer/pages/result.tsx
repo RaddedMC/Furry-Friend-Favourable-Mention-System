@@ -5,13 +5,19 @@ import Link from 'next/link';
 import LandingPagePet from '../components/LandingPagePet';
 import ReviewDialog from '../components/ReviewDialog';
 
-
+/**
+ * show resulting pet 
+ * @returns 
+ */
 export default function SurveyPage() {
     const [pet, setpet] = useState("")
     const [description, setdesc] = useState("")
     const [image, setimg] = useState("")
     const [openState, setOpenState] = useState(false);
 
+	/**
+	 * fetch the calculated result from the IPC
+	 */
     useEffect(() => {
         const tempwindow: any = window;
         tempwindow.questionsAPI.getresult().then(res => {
@@ -23,6 +29,9 @@ export default function SurveyPage() {
         })
     })
 
+	/**
+	 * show the result 
+	 */
     return (
         <React.Fragment>
             <Head>

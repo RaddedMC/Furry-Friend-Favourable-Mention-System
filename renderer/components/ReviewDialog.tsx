@@ -1,15 +1,22 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Rating, TextField, Typography } from "@mui/material";
 import { useState } from "react";
 
+/**
+ * review dialog for survey feedback
+ * @param props  properties
+ * @returns react component
+ */
 export default function ReviewDialog(props: {openState: boolean, onClose: () => void}) {
 
     const [rating, setRating] = useState<number>(3);
     const [comment, setComment] = useState<string>("");
     
+    // on aubmit, return home
     const submitFeedback = () => {
         window.location.href = "/home"
     }
 
+    // show the generated dialog
     return <Dialog
         open={props.openState}
         onClick={(ev) => {
